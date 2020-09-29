@@ -92,10 +92,10 @@ def reliability_guided(x_m, y_m, ref, tar, template, max_diffnorm, max_iteration
         # Solve neighbours for current subset.
         solved, preconditioned, roi, iterations, zncc = neighbours(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_precond, tol, max_diffnorm, max_iterations)
     
-    x = np.vectorize(lambda subset: subset.coord[0])(subsets).flatten()
-    y = np.vectorize(lambda subset: subset.coord[1])(subsets).flatten()
-    u = np.vectorize(lambda subset: subset.u)(subsets).flatten()
-    v = np.vectorize(lambda subset: subset.v)(subsets).flatten()
+    x = np.vectorize(lambda subset: subset.coord[0])(subsets)
+    y = np.vectorize(lambda subset: subset.coord[1])(subsets)
+    u = np.vectorize(lambda subset: subset.u)(subsets)
+    v = np.vectorize(lambda subset: subset.v)(subsets)
     SSSIG_hist = np.vectorize(lambda subset: subset.SSSIG)(subsets).flatten()
     sigma_intensity_hist = np.vectorize(lambda subset: subset.sigma_intensity)(subsets).flatten()
     zncc_hist = np.vectorize(lambda subset: subset.zncc)(subsets).flatten()
