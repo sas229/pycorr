@@ -7,7 +7,7 @@ import time
 
 if __name__=='__main__':
     
-    datapath = u'/usr/local/pycorr-lib/data/'
+    datapath = u'data/'
     filename_ref = 'IMG_0200'
     filename_tar = 'IMG_0205'
     ext = '.jpg'
