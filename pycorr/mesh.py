@@ -1,6 +1,6 @@
 import numpy as np
 
-def neighbours(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_precond, tol, max_diffnorm, max_iterations):
+def reliability_guided(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_precond, tol, max_diffnorm, max_iterations):
     n_vec = np.asarray(([-1,-1],[-1,0], [-1, 1],[0,-1],[0,1],[1,-1],[1,0],[1,1]), dtype=int)
     for k in range(n_vec.shape[0]):
         # If within the region of interest and if not previously solved.
@@ -42,17 +42,3 @@ def neighbours(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_p
                     else:
                         print('Cannot solve this subset...')
     return solved, preconditioned, roi, iterations, zncc
-
-def create_circular_subset(radius):
-    """Method to create a subset template."""
-    # Create template for extracting circular subset information by checking if pixels are within the subset radius.
-    xx, yy = np.meshgrid(np.arange(-radius, radius+1, 1), np.arange(-radius, radius+1, 1))
-    dist = np.sqrt(xx**2 + yy**2)
-    x_s, y_s = np.where(dist<=radius)
-    
-    # Create template coordinates matrix.
-    n_px = x_s.shape[0]
-    subset_coords = np.empty((n_px,2), order='F')
-    subset_coords[:,0] = (x_s - radius).astype(float)
-    subset_coords[:,1] = (y_s - radius).astype(float)
-    return subset_coords
