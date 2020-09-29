@@ -5,5 +5,6 @@
 """
 from .image import Image
 from .subset import Subset
-from .utils import*
+from .subset import create_circular_subset
+from .mesh import*
 from .pycorr_extensions import*
