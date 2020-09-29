@@ -1,6 +1,6 @@
 import numpy as np
 
-def reliability_guided(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_precond, tol, max_diffnorm, max_iterations):
+def neighbours(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_precond, tol, max_diffnorm, max_iterations):
     n_vec = np.asarray(([-1,-1],[-1,0], [-1, 1],[0,-1],[0,1],[1,-1],[1,0],[1,1]), dtype=int)
     for k in range(n_vec.shape[0]):
         # If within the region of interest and if not previously solved.
