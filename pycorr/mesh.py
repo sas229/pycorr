@@ -46,7 +46,7 @@ def neighbours(i, j, subsets, solved, preconditioned, roi, iterations, zncc, p_p
 
 
 
-def reliability_guided(x_m, y_m, ref, tar, template, max_diffnorm, max_iterations, p, tol):
+def reliability_guided(x_m, y_m, ref, tar, template, max_diffnorm = 1e-8, max_iterations = 50, p = np.zeros(6), tol =  0.75):
     roi = np.ones(x_m.shape, dtype=bool)
     preconditioned = np.zeros(x_m.shape, dtype=bool)
     solved = np.zeros(x_m.shape, dtype=int)
